@@ -1,24 +1,28 @@
 class WaveAlgorithm:
     """
-    Class for calculating the shortest way in an oriented graph.
+    Class for calculating the shortest way in an oriented planar graph.
     """
 
     @staticmethod
-    def calcShortestWay(arr, n):
+    def calcShortestWay(arr):
         """
         :param arr: Adjacency matrix
-        :param n: Length of adjacency matrix
-        :return: Shortest way if it exists
+        :return: The shortest way, if it exists
         """
+        n = len(arr)
+        for subarr in arr:
+            if len(subarr) != n:
+                return 'The adjacency matrix is not correct!'
+        
         arrV = [999 for i in range(n)]
         arrM = []
         arrMin = [[0 for i in range(n)] for j in range(n)]
 
         arrV[0] = 0
         arrM.append(0)
-        while len(arrM) > 0:
+        while len(arrM):
             i = arrM.pop(0)
-            arrE = [j for j in range(n) if not arr[i][j] == 0]
+            arrE = [j for j in range(n) if arr[i][j]]
             for j in arrE:
                 temp = arrV[j]
                 arrV[j] = min(arrV[j], arrV[i] + arr[i][j])
@@ -29,35 +33,22 @@ class WaveAlgorithm:
             return 'There is no way'
 
         i = n - 1
-        while not i == 0:
-            arrRevE = [j for j in range(n) if not arr[j][i] == 0]
+        while i:
+            arrRevE = [j for j in range(n) if arr[j][i]]
             for j in arrRevE:
                 if arrV[i] - arrV[j] == arr[j][i]:
                     arrMin[j][i] = arr[j][i]
                     i = j
                     break
 
-        s = 'Shortest way: 1'
+        s = 'The shortest way: 1'
         i = 0
-        while not i == n - 1:
+        while i != n - 1:
             j = 0
-            while arrMin[i][j] == 0 and j < n:
+            while not arrMin[i][j] and j < n:
                 j += 1
-            if not arrMin[i][j] == 0:
+            if arrMin[i][j]:
                 s += ' -> ' + str(j + 1)
                 i = j
         return "%s\nLength of the way = %d" % (s, arrV[n - 1])
 
-
-if __name__ == '__main__':
-    a = [
-            [0, 2, 3, 5, 0, 0, 4, 0],
-            [0, 0, 0, 0, 2, 0, 1, 0],
-            [0, 0, 0, 0, 3, 4, 0, 0],
-            [0, 0, 0, 0, 0, 4, 2, 0],
-            [0, 0, 0, 0, 0, 0, 0, 6],
-            [0, 0, 0, 0, 0, 0, 0, 4],
-            [0, 0, 0, 0, 0, 0, 0, 4],
-            [0 for i in range(8)]
-        ]
-    print(WaveAlgorithm.calcShortestWay(a, 8))
