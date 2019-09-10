@@ -20,7 +20,7 @@ class WaveAlgorithm:
 
         arrV[0] = 0
         arrM.append(0)
-        while len(arrM):
+        while arrM:
             i = arrM.pop(0)
             arrE = [j for j in range(n) if arr[i][j]]
             for j in arrE:
