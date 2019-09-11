@@ -51,4 +51,3 @@ class WaveAlgorithm:
                 s += ' -> ' + str(j + 1)
                 i = j
         return "%s\nLength of the way = %d" % (s, arrV[n - 1])
-
