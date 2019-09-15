@@ -4,7 +4,7 @@ class WaveAlgorithm:
     """
 
     @staticmethod
-    def calcShortestWay(arr):
+    def calculate(arr):
         """
         :param arr: Adjacency matrix
         :return: The shortest way, if it exists
