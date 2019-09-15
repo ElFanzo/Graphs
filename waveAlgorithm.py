@@ -12,8 +12,8 @@ class WaveAlgorithm:
         n = len(arr)
         for subarr in arr:
             if len(subarr) != n:
-                return 'The adjacency matrix is not correct!'
-        
+                return "The adjacency matrix is not correct!"
+
         arrV = [999 for i in range(n)]
         arrM = []
         arrMin = [[0 for i in range(n)] for j in range(n)]
@@ -30,7 +30,7 @@ class WaveAlgorithm:
                     arrM.append(j)
 
         if arrV[n - 1] == 999:
-            return 'There is no way'
+            return "There is no way"
 
         i = n - 1
         while i:
@@ -41,13 +41,13 @@ class WaveAlgorithm:
                     i = j
                     break
 
-        s = 'The shortest way: 1'
+        s = "The shortest way: 1"
         i = 0
         while i != n - 1:
             j = 0
             while not arrMin[i][j] and j < n:
                 j += 1
             if arrMin[i][j]:
-                s += ' -> ' + str(j + 1)
+                s += " -> " + str(j + 1)
                 i = j
         return "%s\nLength of the way = %d" % (s, arrV[n - 1])
