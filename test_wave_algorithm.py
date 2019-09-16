@@ -29,7 +29,8 @@ class TestAlgorithm(TestCase):
         ]
         self.assertEqual(
             WaveAlgorithm.calculate(arr),
-            "The shortest way: 1 -> 3 -> 5 -> 4 -> 6" "\nLength of the way = 20",
+            "The shortest way: 1 -> 3 -> 5 -> 4 -> 6"
+            "\nLength of the way = 20",
         )
 
         arr = [
@@ -62,7 +63,7 @@ class TestAlgorithm(TestCase):
             [0, 0, 0, 4, 0, 0],
         ]
         self.assertEqual(
-            WaveAlgorithm.calculate(arr), "The adjacency matrix is not correct!"
+            WaveAlgorithm.calculate(arr), "The adjacency matrix isn't correct!"
         )
 
 
