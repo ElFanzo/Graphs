@@ -89,7 +89,3 @@ class TestDijkstra(TestCase):
     @staticmethod
     def run_test():
         main()
-
-
-if __name__ == "__main__":
-    main()
