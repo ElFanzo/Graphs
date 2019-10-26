@@ -85,22 +85,3 @@ class Algorithm:
     def is_fit(x: int, y: int, arr) -> bool:
         """Determine if cell with x and y coordinates fits an array."""
         return 0 <= x < len(arr) and 0 <= y < len(arr[0])
-
-
-if __name__ == "__main__":
-    x = "#"
-    field = [
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, x, x, x, x, x, x, 0],
-        [0, x, 0, 0, 0, 0, x, 0],
-        [0, x, 0, x, x, x, x, 0],
-        [0, x, 0, 0, 0, 0, 0, 0],
-        [0, x, x, x, x, x, x, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-    ]
-
-    Algorithm.execute(field, (2, 5), (7, 6))
-
-    for j in field:
-        print(" ".join(str(i) for i in j))
