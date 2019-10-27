@@ -26,6 +26,9 @@ class Algorithm:
             ]
         """
 
+        if not (Algorithm.is_fit(*start, arr) and Algorithm.is_fit(*end, arr)):
+            raise IndexError("Check the start and end points coordinates.")
+
         Algorithm.wave_expansion(arr, start, end)
         Algorithm.backtrace(arr, start, end)
 
@@ -52,6 +55,11 @@ class Algorithm:
                     ):
                         arr[x][y] = arr[current[0]][current[1]] + 1
                         nexts.append((x, y))
+
+            if not nexts:
+                raise Warning(
+                    "There is no path from the start to the end point!"
+                )
 
     @staticmethod
     def backtrace(arr, start: tuple, end: tuple):
