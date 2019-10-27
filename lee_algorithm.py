@@ -44,8 +44,12 @@ class Algorithm:
             nexts = []
             for current in currents:
                 for x, y in Algorithm.get_neighbours(current):
-                    if Algorithm.is_fit(x, y, arr) and not arr[x][y] \
-                            and arr[x][y] != "#" and (x, y) != start:
+                    if (
+                        Algorithm.is_fit(x, y, arr)
+                        and not arr[x][y]
+                        and arr[x][y] != "#"
+                        and (x, y) != start
+                    ):
                         arr[x][y] = arr[current[0]][current[1]] + 1
                         nexts.append((x, y))
 
@@ -59,8 +63,11 @@ class Algorithm:
         current = end
         while current != start:
             for x, y in Algorithm.get_neighbours(current):
-                if Algorithm.is_fit(x, y, arr) and arr[x][y] != "#" \
-                        and arr[x][y] == arr[current[0]][current[1]] - 1:
+                if (
+                    Algorithm.is_fit(x, y, arr)
+                    and arr[x][y] != "#"
+                    and arr[x][y] == arr[current[0]][current[1]] - 1
+                ):
                     arr[current[0]][current[1]] = "^"
                     current = (x, y)
 
