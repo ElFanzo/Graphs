@@ -4,7 +4,7 @@ class Dijkstra:
     """
 
     @staticmethod
-    def calculate(arr, node: int) -> str:
+    def execute(arr, node: int) -> str:
         """Execute Dijkstra's algorithm for a graph.
 
         :param arr: an adjacency matrix
