@@ -21,7 +21,7 @@ class Dijkstra:
             return "The node is incorrect!"
 
         arrV = Dijkstra.get_markers(arr, n)
-        
+
         if arrV[node - 1] == 999:
             return "There is no path from start to the node %d." % node
 
@@ -44,11 +44,11 @@ class Dijkstra:
         arrV = [999 for i in range(n)]
         arrV[0] = 0
         arrM = [0]
-        
+
         while arrM:
             i = arrM.pop(0)
             arrE = [j for j in range(n) if arr[i][j]]
-            
+
             for j in arrE:
                 temp = arrV[j]
                 arrV[j] = min(arrV[j], arrV[i] + arr[i][j])
@@ -70,7 +70,7 @@ class Dijkstra:
         """
         path = []
         i = node - 1
-        
+
         while i:
             arrRevE = [j for j in range(n) if arr[j][i]]
 

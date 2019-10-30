@@ -30,6 +30,7 @@ class Algorithm:
             raise IndexError("Check the start and end points coordinates.")
 
         Algorithm.wave_expansion(arr, start, end)
+
         Algorithm.backtrace(arr, start, end)
 
     @staticmethod
@@ -45,6 +46,7 @@ class Algorithm:
         while not arr[end[0]][end[1]] and nexts:
             currents = nexts
             nexts = []
+
             for current in currents:
                 for x, y in Algorithm.get_neighbours(current):
                     if (
@@ -64,6 +66,7 @@ class Algorithm:
     @staticmethod
     def backtrace(arr, start: tuple, end: tuple):
         """Reconstruct the path in a grid from the end point to the start.
+
         :param arr: a grid representation
         :param start: a point, from which it is necessary to find a path
         :param end: a point, to which it is necessary to find a path
