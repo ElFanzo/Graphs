@@ -1,12 +1,12 @@
 class Dijkstra:
-    """
-    Class for calculating the shortest paths from the start to the other nodes
-    in a graph.
+    """Class for calculating the shortest paths from the start to the other
+    nodes in a graph.
     """
 
     @staticmethod
     def calculate(arr, node: int) -> str:
-        """
+        """Execute Dijkstra's algorithm for a graph.
+
         :param arr: an adjacency matrix
         :param node: a node to which it is necessary to find a path
         :return: the shortest path to a node
