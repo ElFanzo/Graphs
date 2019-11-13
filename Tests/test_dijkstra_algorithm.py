@@ -1,6 +1,6 @@
 from unittest import main, TestCase
 
-from dijkstra_s_algorithm import Dijkstra
+from dijkstra_algorithm import Dijkstra
 
 
 class TestDijkstra(TestCase):
