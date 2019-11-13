@@ -1,6 +1,8 @@
 class Dijkstra:
-    """Class for calculating the shortest paths from the start to the other
-    nodes in a graph.
+    """Class for implementing Dijkstra's algorithm.
+
+    It calculates the shortest paths from the start to another nodes
+    in a graph.
     """
 
     @staticmethod

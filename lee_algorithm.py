@@ -1,6 +1,7 @@
 class Algorithm:
-    """Class, implementing Lee algorithm, that searching the shortest path
-    in a grid from one point to another.
+    """Class for implementing Lee algorithm.
+
+    It searches the shortest path in a grid from one point to another.
     """
 
     @staticmethod
@@ -25,7 +26,6 @@ class Algorithm:
                 [0, 0, 0, 0, 0, 0, 0, 0],
             ]
         """
-
         if not (Algorithm.is_fit(*start, arr) and Algorithm.is_fit(*end, arr)):
             raise IndexError("Check the start and end points coordinates.")
 
