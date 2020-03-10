@@ -3,7 +3,7 @@ from unittest import main, TestCase
 from dijkstra_algorithm import get_path
 
 
-class TestDijkstra(TestCase):
+class TestGetPath(TestCase):
     def test_execute(self):
         arr = [
             [0, 2, 3, 5, 0, 0, 4, 0],
