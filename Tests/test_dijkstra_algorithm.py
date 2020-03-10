@@ -4,7 +4,7 @@ from dijkstra_algorithm import get_path
 
 
 class TestGetPath(TestCase):
-    def test_execute(self):
+    def test_graph(self):
         arr = [
             [0, 2, 3, 5, 0, 0, 4, 0],
             [0, 0, 0, 0, 2, 0, 1, 0],
@@ -25,8 +25,6 @@ class TestGetPath(TestCase):
             "The shortest path from the start to the node 7 is 1 -> 2 -> 7."
             "\nThe length of the path is 3.",
         )
-        self.assertEqual(get_path(arr, 0), "The node is incorrect!")
-        self.assertEqual(get_path(arr, 9), "The node is incorrect!")
 
         arr = [
             [0, 4, 2, 0, 0, 0],
@@ -66,6 +64,17 @@ class TestGetPath(TestCase):
             "\nThe length of the path is 6.",
         )
 
+    def test_graph_enter_incorrect_node_number(self):
+        arr = [
+            [0, 2, 3, 5],
+            [0, 0, 1, 0],
+            [0, 0, 0, 2],
+            [0, 0, 0, 0]
+        ]
+        self.assertEqual(get_path(arr, 0), "The node is incorrect!")
+        self.assertEqual(get_path(arr, 5), "The node is incorrect!")
+
+    def test_incorrect_graph(self):
         arr = [
             [0, 4, 2, 0, 0, 0],
             [0, 0, 5, 10, 0, 0],
@@ -77,6 +86,7 @@ class TestGetPath(TestCase):
             get_path(arr, 5), "The adjacency matrix is incorrect!"
         )
 
+    def test_graph_with_no_path_to_node(self):
         arr = [
             [0, 6, 0],
             [6, 0, 0],
