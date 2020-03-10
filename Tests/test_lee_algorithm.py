@@ -3,12 +3,12 @@ from unittest import main, TestCase
 from lee_algorithm import find_path
 
 
-class TestAlgorithm(TestCase):
-    def test_execute(self):
-        x = "#"
-        A = "A"
-        B = "B"
-        t = "^"
+class TestFindPath(TestCase):
+    def test_right_fields(self):
+        x = "#"  # Wall
+        A = "A"  # Start point
+        B = "B"  # End point
+        t = "^"  # Path part
 
         field = [
             [0, 0, 0, 0, 0, 0, 0, 0],
@@ -114,6 +114,8 @@ class TestAlgorithm(TestCase):
 
         self.assertListEqual(field, expected)
 
+    def test_field_enter_incorrect_point(self):
+        x = "#"
         field = [
             [0, x, 0, 0],
             [x, x, 0, 0],
@@ -126,6 +128,12 @@ class TestAlgorithm(TestCase):
         with self.assertRaises(IndexError):
             find_path(field, (4, 0), (5, 0))
 
+    def test_field_with_no_path(self):
+        x = "#"
+        field = [
+            [0, x, 0, 0],
+            [x, x, 0, 0],
+        ]
         with self.assertRaises(Warning):
             find_path(field, (0, 0), (1, 2))
 
