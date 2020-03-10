@@ -1,6 +1,6 @@
 from unittest import main, TestCase
 
-from lee_algorithm import Algorithm
+from lee_algorithm import find_path
 
 
 class TestAlgorithm(TestCase):
@@ -21,7 +21,7 @@ class TestAlgorithm(TestCase):
             [0, 0, 0, 0, 0, 0, 0, 0],
         ]
 
-        Algorithm.execute(field, (2, 5), (7, 6))
+        find_path(field, (2, 5), (7, 6))
 
         expected = [
             [0, 0, 0, 0, 0, 0, 0, 0],
@@ -46,7 +46,7 @@ class TestAlgorithm(TestCase):
             [0, 0, 0, x, 0, 0, 0],
         ]
 
-        Algorithm.execute(field, (6, 1), (6, 5))
+        find_path(field, (6, 1), (6, 5))
 
         expected = [
             [0, 0, 0, 0, 0, 0, 0],
@@ -69,7 +69,7 @@ class TestAlgorithm(TestCase):
             [0, 0, 0, 0, 0, 0],
         ]
 
-        Algorithm.execute(field, (0, 0), (5, 5))
+        find_path(field, (0, 0), (5, 5))
 
         expected = [
             [A, 0, 0, 0, 0, 0],
@@ -92,7 +92,7 @@ class TestAlgorithm(TestCase):
             [0, x, x, 0, 0],
         ]
 
-        Algorithm.execute(field, (2, 0), (0, 0))
+        find_path(field, (2, 0), (0, 0))
 
         expected = [
             [B, t, t, t, t],
@@ -108,7 +108,7 @@ class TestAlgorithm(TestCase):
 
         field = [[0, 0, 0, 0, 0, 0, 0]]
 
-        Algorithm.execute(field, (0, 0), (0, 6))
+        find_path(field, (0, 0), (0, 6))
 
         expected = [[A, t, t, t, t, t, B]]
 
@@ -120,14 +120,14 @@ class TestAlgorithm(TestCase):
         ]
 
         with self.assertRaises(IndexError):
-            Algorithm.execute(field, (2, 0), (0, 0))
+            find_path(field, (2, 0), (0, 0))
         with self.assertRaises(IndexError):
-            Algorithm.execute(field, (1, 0), (0, 6))
+            find_path(field, (1, 0), (0, 6))
         with self.assertRaises(IndexError):
-            Algorithm.execute(field, (4, 0), (5, 0))
+            find_path(field, (4, 0), (5, 0))
 
         with self.assertRaises(Warning):
-            Algorithm.execute(field, (0, 0), (1, 2))
+            find_path(field, (0, 0), (1, 2))
 
     @staticmethod
     def run_test():
