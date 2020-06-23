@@ -1,5 +1,7 @@
 """Implementation of Dijkstra's algorithm."""
 
+from typing import List
+
 
 def get_path(arr, node: int) -> str:
     """Get the shortest paths from the start to another nodes in a graph.
@@ -31,7 +33,7 @@ def get_path(arr, node: int) -> str:
     )
 
 
-def get_markers(arr, n):
+def get_markers(arr, n: int) -> List[int]:
     """Get markers for each node of a graph.
 
     :param arr: an adjacency matrix
@@ -56,7 +58,7 @@ def get_markers(arr, n):
     return arr_v
 
 
-def backtrace(arr, n, node, arr_v):
+def backtrace(arr, n: int, node: int, arr_v: List[int]) -> List[str]:
     """Reconstruct a path in a graph from the specified node to the start.
 
     :param arr: an adjacency matrix

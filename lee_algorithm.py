@@ -1,5 +1,7 @@
 """Implementation of Lee algorithm."""
 
+from typing import List
+
 
 def find_path(arr, start: tuple, end: tuple):
     """Find the shortest path in a grid from one point to another.
@@ -86,7 +88,7 @@ def backtrace(arr, start: tuple, end: tuple):
     arr[end[0]][end[1]] = "B"
 
 
-def get_neighbours(cell: tuple) -> list:
+def get_neighbours(cell: tuple) -> List[tuple]:
     """Search for cell's neighbours."""
     left = (cell[0], cell[1] - 1)
     right = (cell[0], cell[1] + 1)
